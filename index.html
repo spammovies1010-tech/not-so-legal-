@@ -1,825 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide-With-Elite | NEET 2025 Rankers Mentorship Program</title>
-    <meta name="description" content="Get personalized NEET mentorship from 2025 toppers. Affordable guidance, proven strategies, and motivation from UCMS, VMMC & MAMC rankers.">
-    <meta name="keywords" content="NEET mentorship, NEET strategy, NEET 2025 toppers guidance, medical entrance coaching, NEET preparation">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ff6b35;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff6b35;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #ff6b35;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateX(-50%) translateY(-50%); }
-            100% { transform: translateX(-50%) translateY(-60%); }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: slideUp 0.8s ease;
-        }
-
-        .hero-tagline {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideUp 0.8s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #ff6b35;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s ease 0.4s both;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 80px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #ff6b35;
-            border-radius: 2px;
-        }
-
-        /* About Us */
-        .about {
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            text-align: center;
-            font-size: 8rem;
-            color: #ff6b35;
-            opacity: 0.8;
-        }
-
-        /* Mentors */
-        .mentors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .mentor-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mentor-card:hover {
-            transform: translateY(-10px);
-            border-color: #ff6b35;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .mentor-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            position: relative;
-            overflow: hidden;
-            border: 4px solid #ff6b35;
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
-        }
-
-        .mentor-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .mentor-card:hover .mentor-avatar img {
-            transform: scale(1.1);
-        }
-
-        .mentor-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .mentor-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-        }
-
-        .mentor-placeholder::after {
-            content: '';
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 35px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50px 50px 0 0;
-        }
-
-        .mentor-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .mentor-college {
-            color: #ff6b35;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .mentor-rank {
-            background: #e8f5e8;
-            color: #2e7d2e;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .mentor-specialty {
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 8px;
-            border-left: 3px solid #ff6b35;
-        }
-
-        .mentor-specialty small {
-            color: #555;
-            line-height: 1.4;
-        }
-
-        /* Why Choose Us */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: #ff6b35;
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        /* Program Details */
-        .program-details {
-            background: #f8f9fa;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border: 3px solid #ff6b35;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .price {
-            font-size: 3rem;
-            color: #ff6b35;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-duration {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .features-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-
-        .features-list i {
-            color: #28a745;
-            margin-right: 0.5rem;
-        }
-
-        /* Testimonials */
-        .testimonial-placeholder {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            border-radius: 20px;
-        }
-
-        /* Contact */
-        .contact {
-            background: #333;
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            color: #ff6b35;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item i {
-            color: #ff6b35;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            width: 20px;
-        }
-
-        .register-form {
-            background: rgba(255, 107, 53, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #ff6b35;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.9);
-            color: #333;
-        }
-
-        .submit-btn {
-            background: #ff6b35;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .mentors-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">Guide-With-Elite</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#mentors">Mentors</a></li>
-                <li><a href="#features">Why Us</a></li>
-                <li><a href="#program">Program</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Guide-With-Elite</h1>
-            <p class="hero-tagline">Join us if you struggle sticking to timetables and need a different approach</p>
-            <a href="#contact" class="cta-button">Register Now</a>
-        </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="section about">
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">About Us</h2>
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <p>Guide-With-Elite is a mentorship program planned by <strong>Dr. Arsh (UCMS)</strong>, where mentors are recruited very carefully to cover all kinds of student issues.</p>
-                    
-                    <p>Born from the experience of cracking <strong>NEET 2025 - the most difficult medical entrance exam ever</strong> - our founders understand exactly what it takes to succeed when the stakes are highest.</p>
-                    
-                    <p>We believe that <strong>"with proper guidance, you can get an even better rank"</strong> than what we achieved. That's why we've created this program to share the self-study methods, strategies developed after hundreds of attempts, and the elder-brother support every NEET aspirant deserves.</p>
-                    
-                    <p><strong>Why we started:</strong> We know the struggle of sticking to timetables and needing a different approach. Whether you're struggling with motivation, need perfect checklists, or want to use affordable online resources effectively - we've got you covered.</p>
-                    
-                    <p><strong>Future Vision:</strong> Although we're at a startup level, with your support we'll soon be expanding to engineering entrance (JEE) as well as board exams. We're also holding complimentary weekly Zoom meetings to address students with common issues.</p>
-                    
-                    <p class="highlight-text" style="background: rgba(255, 107, 53, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #ff6b35; margin-top: 1.5rem;">
-                        <strong>Special Message for Repeaters:</strong> We have Aarish Ahmad, who took 3 attempts to reach MAMC - he knows exactly what to avoid in drop years and what to do. You're not alone in this journey!
-                    </p>
-                </div>
-                <div class="about-image fade-in">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Meet the Mentors -->
-    <section id="mentors" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Meet the Mentors</h2>
+            <h2 class="section-title fade-in">What Students Say</h2>
             <div class="mentors-grid">
-                <div class="mentor-card fade-in">
-                    <div class="mentor-avatar">
-                        <img src="https://i.ibb.co/wZW86WW1/213c2d73-772d-44eb-846d-7d394bad9912.jpg" alt="Dr. Arsh - NEET Mentor UCMS">
-                    </div>
-                    <h3 class="mentor-name">Dr. Arsh</h3>
-                    <p class="mentor-college">UCMS Delhi (#10/660)</p>
-                    <span class="mentor-rank">AIR 2347 | 589/720</span>
-                    <p>"I believe I was able to get this far due to the self-study methods I implemented and the strategies I made after hundreds of attempts. With proper guidance, you can get an even better rank!"</p>
-                    <div class="mentor-specialty">
-                        <small><strong>Specialty:</strong> Self-study methods & strategic planning for NEET 2025 (most difficult exam ever)</small>
-                    </div>
+                <div class="feature-card fade-in">
+                    <p>"Before joining Guide-With-Elite, I was lost. The mentors helped me create a practical plan and I finally feel confident."</p>
+                    <h4>- Riya, NEET Aspirant</h4>
                 </div>
-                
-                <div class="mentor-card fade-in">
-                    <div class="mentor-avatar">
-                        <img src="https://i.ibb.co/9kYFzY07/b81c44b0-ff46-4863-9640-24183ec41e35.jpg" alt="Dikshit - NEET Mentor VMMC">
-                    </div>
-                    <h3 class="mentor-name">Dikshit</h3>
-                    <p class="mentor-college">VMMC & Safdarjung Hospital</p>
-                    <span class="mentor-rank">AIR 266 | 629/720</span>
-                    <p>"I'm here to guide you every tactics and strategies that I followed to achieve this goal. I'll build a perfect checklist and timetable for you."</p>
-                    <div class="mentor-specialty">
-                        <small><strong>Specialty:</strong> Gurukripa Sikar tactics (AIR-1 institute) | Perfect study planning</small>
-                    </div>
+                <div class="feature-card fade-in">
+                    <p>"Talking to someone who has already cleared NEET 2025 makes a big difference. Their tips are things no coaching tells you."</p>
+                    <h4>- Ankit, Dropper</h4>
                 </div>
-                
-                <div class="mentor-card fade-in">
-                    <div class="mentor-avatar">
-                        <img src="https://i.ibb.co/fVfy8pK9/a7d54d17-6c6e-48fb-a4f5-b03e41e417a1.jpg" alt="Nishant - NEET Mentor VMMC">
-                    </div>
-                    <h3 class="mentor-name">Nishant</h3>
-                    <p class="mentor-college">VMMC Delhi (#7/660 GMCs)</p>
-                    <span class="mentor-rank">Top Ranker</span>
-                    <p>"I did not spend lakhs on offline coaching. I used online resources and affordable PW courses to get where I am today."</p>
-                    <div class="mentor-specialty">
-                        <small><strong>Specialty:</strong> Budget-friendly preparation | Online resource optimization</small>
-                    </div>
-                </div>
-                
-                <div class="mentor-card fade-in">
-                    <div class="mentor-avatar">
-                        <img src="https://i.ibb.co/Z61FK2ym/d33594fc-fb50-49bb-9c2e-43e5d521fe01.jpg" alt="Aarish Ahmad - NEET Mentor MAMC">
-                    </div>
-                    <h3 class="mentor-name">Aarish Ahmad</h3>
-                    <p class="mentor-college">Maulana Azad Medical College</p>
-                    <span class="mentor-rank">3rd Attempt Success</span>
-                    <p>"My journey has been the most difficult among all mentors as I took 3 attempts. But now I know exactly what to avoid in drop years and what to do."</p>
-                    <div class="mentor-specialty">
-                        <small><strong>Specialty:</strong> Drop year guidance | Elder brother support | Overcoming failures</small>
-                    </div>
+                <div class="feature-card fade-in">
+                    <p>"Affordable, practical, and motivating. This mentorship is exactly what repeaters like me needed."</p>
+                    <h4>- Pooja, 2nd Attempt</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="features" class="section">
+    <!-- Contact -->
+    <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title fade-in">Why Choose Guide-With-Elite?</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                    <h3 class="feature-title">Cost of a Coffee</h3>
-                    <p>Just ₹50 for 15-minute personalized guidance - that's literally the cost of a cup of coffee. Quality mentorship shouldn't break the bank!</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3 class="feature-title">Limited & Exclusive</h3>
-                    <p>Only 4 slots per mentor per day to ensure the best service. Get undivided attention and customized solutions for your specific challenges.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3 class="feature-title">Cracked NEET 2025</h3>
-                    <p>Learn from those who conquered the <strong>most difficult NEET ever</strong> - strategies tested under the toughest conditions and proven to work.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3 class="feature-title">Free Weekly Zoom Sessions</h3>
-                    <p>Complimentary group meetings every week to address common student issues and keep you motivated throughout your journey.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title">Budget-Friendly Success</h3>
-                    <p>Like Nishant, you don't need to spend lakhs! Learn to use online resources and affordable courses effectively to achieve top ranks.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-redo"></i>
-                    </div>
-                    <h3 class="feature-title">Perfect for Repeaters</h3>
-                    <p>Aarish took 3 attempts to reach MAMC. He knows exactly what to avoid in drop years and how to bounce back stronger than ever.</p>
+            <h2 class="section-title fade-in" style="color:white;">Contact & Register</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item"><i class="fas fa-phone"></i> <span>+91 98765 43210</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> <span>guidewithelite@gmail.com</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Delhi, India</span></div>
                 </div>
 
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-tasks"></i>
+                <form class="register-form fade-in" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
                     </div>
-                    <h3 class="feature-title">Perfect Study Plans</h3>
-                    <p>Struggle with timetables? Dikshit will build perfect checklists and study schedules tailored specifically for your learning style and goals.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
                     </div>
-                    <h3 class="feature-title">Elder Brother Support</h3>
-                    <p>We're like your elder brothers who'll always be there when you're feeling low. Together as a team, we'll make your NEET journey easier.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-early-birds"></i>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" required></textarea>
                     </div>
-                    <h3 class="feature-title">Early Bird Discount</h3>
-                    <p>As we're just getting started, avail this special pricing now! Shape your future and grab this limited-time opportunity.</p>
-                </div>
+                    <button type="submit" class="submit-btn">Send via WhatsApp</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Program Details -->
-    <section id="program" class="section program-details">
-        <div class="container">
-            <h2 class="section-title fade-in">Program Details</h2>
-            <div class="pricing-card fade-in">
-                <div class="price">₹50</div>
-                <p class="price-duration">for 15-minute 1:1 audio session</p>
-                
-                <div style="text-align: center; margin: 1rem 0; padding: 1rem; background: rgba(255, 107, 53, 0.1); border-radius: 10px;">
-                    <div style="font-size: 2rem; color: #ff6b35; font-weight: bold;">₹80</div>
-                    <p style="color: #666; margin: 0;">for 30-minute extended session</p>
-                </div>
-                
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> Personalized mentorship from NEET 2025 rankers</li>
-                    <li><i class="fas fa-check"></i> Only 4 slots per mentor per day (exclusive service)</li>
-                    <li><i class="fas fa-check"></i> Choose 15-min or 30-min sessions based on your needs</li>
-                    <li><i class="fas fa-check"></i> Customized study plans and perfect checklists</li>
-                    <li><i class="fas fa-check"></i> Strategies from the most difficult NEET ever (2025)</li>
-                    <li><i class="fas fa-check"></i> Time management and motivation guidance</li>
-                    <li><i class="fas fa-check"></i> Weekly complimentary Zoom group sessions</li>
-                    <li><i class="fas fa-check"></i> Different perspectives from UCMS, VMMC & MAMC mentors</li>
-                    <li><i class="fas fa-check"></i> Elder brother support via WhatsApp</li>
-                    <li><i class="fas fa-check"></i> Special guidance for repeaters (3-attempt success story)</li>
-                </ul>
-                
-                <a href="#contact" class="cta-button">Book Your Session</a>
-            </div>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Guide-With-Elite | Built with ❤️ by NEET Rankers</p>
+    </footer>
 
-    <!-- Testimonials Placeholder -->
-    <section class="section">
-        <div class="container">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Scroll Animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Send WhatsApp Message
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            const text = `Hello, my name is ${name}. My phone number is ${phone}. Message: ${message}`;
+            const url = `https://wa.me/919876543210?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
